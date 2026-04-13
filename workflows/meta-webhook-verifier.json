@@ -1,0 +1,90 @@
+{
+  "name": "Meta WhatsApp Webhook Verifier",
+  "nodes": [
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "test",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -224,
+        -48
+      ],
+      "id": "9722f8d0-969b-411d-97c7-80daee99ca05",
+      "name": "Webhook",
+      "webhookId": "8fc5f830-abdd-430a-9cb9-e8e06cfd3406",
+      "notes": "🔗 STEP 1: This webhook receives the verification challenge from Meta.\nMeta sends a GET request with hub.challenge to verify you own this endpoint.\nMake sure this workflow is ACTIVE (Published) before setting up the webhook in Meta Dashboard."
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.query?.[\"hub.challenge\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        208,
+        -64
+      ],
+      "id": "5a069cf9-b83b-407a-8a5d-175b9b36808c",
+      "name": "Respond to Webhook",
+      "notes": "✅ STEP 2: Responds back to Meta with the hub.challenge value.\nThis confirms to Meta that you own this webhook endpoint.\nAfter successful verification, Meta will send real WhatsApp messages here."
+    },
+    {
+      "parameters": {
+        "content": "## 🔗 Meta WhatsApp Webhook Verifier\n\n**Purpose:** This workflow handles the one-time webhook verification process required by Meta before you can receive WhatsApp messages.\n\n**How it works:**\n1. Meta sends a verification GET request to your webhook URL\n2. The request contains a `hub.challenge` value\n3. Your webhook must respond with exactly that value\n4. Meta confirms you own the endpoint ✅\n\n**⚠️ Important:**\n- This workflow must be **ACTIVE** during verification\n- Copy the Production URL from the Webhook node\n- Paste it in: Meta Developers → Your App → WhatsApp → Configuration\n- Set any Verify Token you want (remember it!)\n\n**📺 Tutorial:** https://youtu.be/gFt1yf1-ukU?si=ZFLewzqIddB9sO4T\n\n**🌐 Need help?** https://yousefautomates.pages.dev/",
+        "height": 400,
+        "width": 500,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        -300
+      ],
+      "id": "sticky-secondary-main",
+      "name": "Sticky Note - Overview"
+    },
+    {
+      "parameters": {
+        "content": "## ⚙️ Setup Instructions\n\n**Step 1:** Make this workflow Active\n\n**Step 2:** Copy the Production webhook URL from the node ➡️\n\n**Step 3:** Go to Meta Developers Dashboard\n→ Your App → WhatsApp → Configuration → Webhook\n\n**Step 4:** Paste URL in 'Callback URL' field\n\n**Step 5:** Set a Verify Token (any secret text)\n\n**Step 6:** Click 'Verify and Save'\n\n✅ Done! Meta webhook is now verified.",
+        "height": 300,
+        "width": 350,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        150
+      ],
+      "id": "sticky-secondary-setup",
+      "name": "Sticky Note - Setup Steps"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "adda0f2c4cf4d06a05c5e2d10300b5b68d068fad68b90a27d9cd2b87a43c0fa4"
+  }
+}
