@@ -33,7 +33,7 @@
 <div align="center">
 
 # 🤖 Free WhatsApp API from Meta + n8n AI Automation
-### Complete Guide — From Zero to a Working WhatsApp Chatbot | 2025/2026
+### Complete Guide — From Zero to a Working WhatsApp Chatbot | 2026
 
 > **Get a free official WhatsApp Business API test number from Meta and build a full AI chatbot using n8n — step by step, completely free.**
 
