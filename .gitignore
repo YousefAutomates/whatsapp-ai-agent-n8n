@@ -1,0 +1,30 @@
+# n8n exported workflows may contain sensitive credentials
+# Always review before committing!
+
+# Environment files
+.env
+.env.local
+.env.production
+*.env
+
+# Credentials backup
+credentials/
+*credentials*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
