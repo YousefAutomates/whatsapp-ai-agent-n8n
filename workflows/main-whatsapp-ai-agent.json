@@ -1,36 +1,35 @@
 {
-  "name": "WhatsApp AI Agent - Restaurant Bot (Arabic) | بوت مطعم ذكي",
   "nodes": [
     {
       "parameters": {
         "content": "# 🤖 WhatsApp AI Agent — Restaurant Bot\n**بوت واتساب ذكي لمطعم بيت الأكل المصري**\n\n---\n\n## 📺 Tutorial Video\nhttps://youtu.be/gFt1yf1-ukU?si=ZFLewzqIddB9sO4T\n\n## 🔗 Webhook Setup Workflow\nImport the companion workflow:\n`meta-webhook-verifier.json`\n\n## 🌐 Professional Automation Services\nNeed custom automation for your business?\n👉 **https://yousefautomates.pages.dev/**\n\n---\n\n## 👨‍💻 Author\n**م. يوسف الشربيني**\n**Eng. Yousef Elsherbiny**\nAutomation & AI Specialist\n\n---\n\n## 📋 Workflow Overview\n```\nWhatsApp Trigger\n      ↓\n   IF Node (text message filter)\n      ↓\n   AI Agent (Groq LLM + Memory)\n      ↓\n   Send WhatsApp Reply\n```\n\n## ⚡ Tech Stack\n- **n8n** — Workflow automation\n- **Meta WhatsApp Business API** — Messaging\n- **Groq + LLaMA 3.3 70B** — AI responses\n- **Window Buffer Memory** — Conversation history",
-        "height": 650,
+        "height": 826,
         "width": 480,
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1200,
-        -350
+        -272,
+        -416
       ],
-      "id": "sticky-main-overview",
+      "id": "c023044a-61e8-4ee3-afa6-ea855941ef19",
       "name": "Sticky Note - Project Overview"
     },
     {
       "parameters": {
-        "content": "## ✅ Prerequisites & Setup Checklist\n\n**Before activating this workflow:**\n\n### 1️⃣ Meta WhatsApp Business API\n- [ ] Meta Developer account created\n- [ ] App created (Business type)\n- [ ] WhatsApp product added\n- [ ] Phone Number ID copied\n- [ ] Permanent Access Token generated\n\n### 2️⃣ Webhook Configuration\n- [ ] Run the companion workflow first:\n      `meta-webhook-verifier.json`\n- [ ] Webhook verified in Meta Dashboard\n- [ ] This workflow is set as the main webhook\n\n### 3️⃣ n8n Credentials\n- [ ] `WhatsApp Trigger API` configured\n- [ ] `WhatsApp API` (send) configured\n- [ ] `Groq API` key added\n\n### 4️⃣ Customization\n- [ ] Update restaurant name/menu in AI Agent\n- [ ] Update Phone Number ID in Send node\n- [ ] Test with your registered number\n\n**📺 Full setup guide:**\nhttps://youtu.be/gFt1yf1-ukU?si=ZFLewzqIddB9sO4T",
-        "height": 520,
+        "content": "## ✅ Prerequisites & Setup Checklist\n\n**Before activating this workflow:**\n\n### 1️⃣ Meta WhatsApp Business API\n- [ ] Meta Developer account created\n- [ ] App created (Business type)\n- [ ] WhatsApp product added\n- [ ] Phone Number ID copied\n- [ ] Permanent Access Token generated\n\n### 2️⃣ Webhook Configuration\n- [ ] Run the companion workflow first:\n      `meta-webhook-verifier.json`\n- [ ] Webhook verified in Meta Dashboard\n\n### 3️⃣ n8n Credentials\n- [ ] `WhatsApp Trigger API` configured\n- [ ] `WhatsApp API` (send) configured\n- [ ] `Groq API` key added\n\n### 4️⃣ Customization\n- [ ] Update restaurant name/menu in AI Agent\n- [ ] Update Phone Number ID in Send node\n- [ ] Test with your registered number\n\n**📺 Full setup guide:**\nhttps://youtu.be/gFt1yf1-ukU?si=ZFLewzqIddB9sO4T",
+        "height": 632,
         "width": 400,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1200,
-        320
+        48,
+        464
       ],
-      "id": "sticky-prerequisites",
+      "id": "6cca2b22-1eba-42d8-bf37-43f1d07a9bcc",
       "name": "Sticky Note - Prerequisites"
     },
     {
@@ -43,10 +42,10 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -656,
-        -128
+        304,
+        80
       ],
-      "id": "945d6f24-e06b-49c5-b605-2c9460eed122",
+      "id": "4bb0a19e-d209-4b13-bd73-3c773e1c5010",
       "name": "WhatsApp Trigger",
       "webhookId": "9a815cfd-73ed-42ca-b5dd-c44a8dd665bc",
       "credentials": {
@@ -60,17 +59,17 @@
     {
       "parameters": {
         "content": "## 📥 WhatsApp Trigger\n\n**What it does:**\nListens for ALL incoming WhatsApp events including:\n- 📨 Incoming messages (text, image, audio, etc.)\n- ✅ Delivery status updates\n- 👁️ Read receipts\n\n**Why we need the IF node next:**\nMeta sends multiple events for every message:\n1. The actual message event\n2. 'Delivered' status event\n3. 'Read' status event\n\nWithout filtering, the AI would respond 3x to every message!\nThe IF node filters out non-text events.\n\n**Credential fields needed:**\n- Client ID = App ID (from Meta)\n- Client Secret = App Secret (from Meta)",
-        "height": 300,
-        "width": 350,
+        "height": 620,
+        "width": 366,
         "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -700,
-        80
+        304,
+        -304
       ],
-      "id": "sticky-trigger-explain",
+      "id": "b7e093df-e7f2-416b-a7f1-f2b91adfe55d",
       "name": "Sticky Note - Trigger"
     },
     {
@@ -101,27 +100,27 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -400,
-        16
+        848,
+        224
       ],
-      "id": "f8332c2e-1344-417e-95b7-54f94d3874d0",
+      "id": "d5faf5a9-c8b0-423a-a846-a7ef4ce5a2d8",
       "name": "Filter: Text Messages Only",
       "notes": "🔀 MESSAGE FILTER\nOnly allows TEXT messages to pass through to the AI.\n\nTRUE branch → AI Agent (text message exists)\nFALSE branch → Ignored (delivery/read receipts, media, etc.)\n\nThis prevents the AI from responding to:\n- Delivery confirmations\n- Read receipts\n- Images/videos/voice notes\n- Stickers\n\nTo handle media messages: add more conditions or\ncreate separate branches for each message type."
     },
     {
       "parameters": {
         "content": "## 🔀 Smart Message Filter\n\n**Checks:** Does `messages[0].text.body` exist?\n\n**TRUE ✅** → Text message → Send to AI\n**FALSE ❌** → Not a text → Stop here\n\n**Messages that get filtered OUT:**\n- ✅ Delivery receipts\n- 👁️ Read receipts  \n- 🖼️ Images\n- 🎵 Voice notes\n- 📹 Videos\n- 📎 Documents\n- 😄 Stickers\n\n**💡 Pro Tip:** You can extend this workflow to handle media messages by adding more IF branches!",
-        "height": 280,
+        "height": 552,
         "width": 320,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -400,
-        220
+        720,
+        -240
       ],
-      "id": "sticky-if-explain",
+      "id": "f5361fcb-23ae-46a9-8217-e64c9d16b864",
       "name": "Sticky Note - Filter"
     },
     {
@@ -135,27 +134,27 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        -100,
-        -144
+        1104,
+        208
       ],
-      "id": "200ebebe-e979-46b3-ae32-6e859a5bfd9f",
+      "id": "a101df33-2c60-48ab-a7cf-eac8acd8b8d4",
       "name": "AI Agent — Restaurant Assistant",
       "notes": "🧠 AI BRAIN\nProcesses customer messages and generates intelligent responses.\n\nConfiguration:\n- User Message: The customer's WhatsApp text\n- System Message: Restaurant context, menu, behavior rules\n- LLM: Groq (LLaMA 3.3 70B) — Free & Fast\n- Memory: Window Buffer (per phone number session)\n\nTo customize for your business:\n1. Update the restaurant name and location\n2. Add/remove menu items with prices\n3. Modify the response style/language\n4. Add business hours, delivery info, etc.\n\nThe system prompt is written in Egyptian Arabic\nfor natural customer interaction."
     },
     {
       "parameters": {
-        "content": "## 🧠 AI Agent Configuration\n\n**Model:** LLaMA 3.3 70B via Groq\n**Language:** Egyptian Arabic\n**Memory:** Per-customer session\n\n### 🍽️ Current Restaurant Setup:\n**بيت الأكل المصري**\n- 📍 المعادي، القاهرة\n- ⏰ 12 ظهر — 2 صبح\n\n**Menu:**\n| Item | Price |\n|------|-------|\n| طاجن ملوخية بالفراخ | 120 ج |\n| كشري عائلي | 80 ج |\n| أرز بلبن | 35 ج |\n\n### ✏️ To customize:\nClick the AI Agent node → Edit System Message\nAdd your business info, menu, rules\n\n### 🆓 Getting Groq API Key:\n1. Go to console.groq.com\n2. Create free account\n3. Generate API Key\n4. Add to n8n Credentials\n\n**📺 Watch the tutorial:**\nhttps://youtu.be/gFt1yf1-ukU",
-        "height": 420,
+        "content": "## 🧠 AI Agent Configuration\n\n**Model:** LLaMA 3.3 70B via Groq\n**Memory:** Per-customer session\n\n\n\n### ✏️ To customize:\nClick the AI Agent node → Edit System Message\nAdd your business info, menu, rules\n\n### 🆓 Getting Groq API Key:\n1. Go to console.groq.com\n2. Create free account\n3. Generate API Key\n4. Add to n8n Credentials\n\n**📺 Watch the tutorial:**\nhttps://youtu.be/gFt1yf1-ukU",
+        "height": 580,
         "width": 380,
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -100,
-        80
+        1056,
+        -240
       ],
-      "id": "sticky-ai-explain",
+      "id": "3544a89c-05c0-4541-b1d9-a125d49c9c29",
       "name": "Sticky Note - AI Agent"
     },
     {
@@ -166,10 +165,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -20,
-        160
+        1088,
+        544
       ],
-      "id": "0457a43d-a857-488c-80e2-6358f5651286",
+      "id": "dde3cd18-a6b5-469f-8e2d-efe9a1050697",
       "name": "Groq — LLaMA 3.3 70B",
       "credentials": {
         "groqApi": {
@@ -187,27 +186,27 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        160,
-        160
+        1344,
+        592
       ],
-      "id": "da5197aa-18bf-4f0e-a264-bfca89abbc9d",
+      "id": "c372f464-be34-4a40-9e81-2df0dda852c3",
       "name": "Conversation Memory (per customer)",
       "notes": "💾 CONVERSATION MEMORY\nMaintains separate conversation history for each customer.\n\nSession Key: Customer's phone number\nThis means:\n- Each customer has their own memory\n- The AI remembers what was said earlier in the conversation\n- Memory resets when n8n restarts\n\nFor persistent memory across restarts:\n→ Replace with Redis Memory node\n→ Or use Postgres Chat Memory node\n\nDefault window size: Last 5 exchanges\nIncrease for longer context, but uses more tokens."
     },
     {
       "parameters": {
         "content": "## ⚡ AI Sub-nodes\n\nThese nodes are **connected to the AI Agent** as tools:\n\n### 🔮 Groq LLM\n- Powers the AI responses\n- Free API, ultra-fast\n- Model: LLaMA 3.3 70B\n- Get key at: console.groq.com\n\n### 💾 Window Memory\n- Remembers conversation history\n- Separate memory per customer\n- Session ID = customer phone number\n- Default: last 5 message pairs\n\n**💡 These connect to the AI Agent**\n**via the sub-node connection points**\n**(bottom of the AI Agent node)**",
-        "height": 280,
-        "width": 300,
+        "height": 456,
+        "width": 396,
         "color": 6
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        320,
-        80
+        816,
+        448
       ],
-      "id": "sticky-subnodes",
+      "id": "7932f179-f13c-4731-9062-0b88d31043e3",
       "name": "Sticky Note - Sub Nodes"
     },
     {
@@ -221,10 +220,10 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1.1,
       "position": [
-        400,
-        -96
+        1680,
+        240
       ],
-      "id": "f160679c-ed5c-4745-a965-55c4ef4ea7bb",
+      "id": "9620830a-a135-4253-8188-989cd932811d",
       "name": "Send WhatsApp Reply",
       "webhookId": "47181a63-19fa-4ae3-b7e9-dbde667645b5",
       "credentials": {
@@ -237,34 +236,34 @@
     },
     {
       "parameters": {
-        "content": "## 📤 Send Reply Configuration\n\n**Auto-filled (no changes needed):**\n- Recipient → sender's number from trigger\n- Message → AI Agent output text\n\n**⚠️ YOU MUST UPDATE:**\n\n### Phone Number ID\nFind it in Meta Dashboard:\n→ App → WhatsApp → Getting Started\n→ Look for 'Phone Number ID'\n→ It's a 15-digit number\n\n### WhatsApp API Credential\nNeeds a PERMANENT Access Token:\n1. Meta Business Suite → Settings\n2. Users → System Users → Add\n3. Assign WhatsApp permissions\n4. Generate Token → Never Expires\n5. Add to n8n Credentials\n\n**⏰ Temporary token expires every 24h!**\n**Use System User Token for production.**\n\n🌐 Need help setting up?\nhttps://yousefautomates.pages.dev/",
-        "height": 380,
-        "width": 350,
+        "content": "## 📤 Send Reply Configuration\n\n\n\n### WhatsApp API Credential\nNeeds a PERMANENT Access Token:\n1. Meta Business Suite → Settings\n2. Users → System Users → Add\n3. Assign WhatsApp permissions\n4. Generate Token → Never Expires\n5. Add to n8n Credentials\n\n**⏰ Temporary token expires very fast !**\n**Use System User Token for production.**\n\n🌐 Need help setting up?\nhttps://yousefautomates.pages.dev/",
+        "height": 588,
+        "width": 398,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        400,
-        120
+        1536,
+        -240
       ],
-      "id": "sticky-send-explain",
+      "id": "00b7751b-f7d7-4e04-a076-10dbcb8a03d6",
       "name": "Sticky Note - Send Node"
     },
     {
       "parameters": {
         "content": "## 🚀 Need Professional Automation Services?\n\n**م. يوسف الشربيني** provides expert automation solutions:\n\n✅ WhatsApp AI Bots\n✅ n8n Workflow Automation\n✅ AI Agents & Chatbots\n✅ CRM Integration\n✅ Business Process Automation\n✅ API Integration\n✅ Training & Consulting\n\n---\n\n**📺 Tutorial Video:**\nhttps://youtu.be/gFt1yf1-ukU?si=ZFLewzqIddB9sO4T\n\n**🌐 Contact & Portfolio:**\nhttps://yousefautomates.pages.dev/\n\n**👨‍💻 Eng. Yousef Elsherbiny**\nAutomation & AI Specialist\n\n---\n*Transform your business with intelligent automation!*",
-        "height": 380,
-        "width": 350,
+        "height": 460,
+        "width": 366,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        780,
-        -200
+        1984,
+        160
       ],
-      "id": "sticky-marketing",
+      "id": "25829c69-8d84-4dba-913d-3df7e1eee34f",
       "name": "Sticky Note - Services"
     }
   ],
@@ -274,6 +273,17 @@
         [
           {
             "node": "Filter: Text Messages Only",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Text Messages Only": {
+      "main": [
+        [
+          {
+            "node": "AI Agent — Restaurant Assistant",
             "type": "main",
             "index": 0
           }
@@ -312,22 +322,10 @@
           }
         ]
       ]
-    },
-    "Filter: Text Messages Only": {
-      "main": [
-        [
-          {
-            "node": "AI Agent — Restaurant Assistant",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
   "pinData": {},
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "adda0f2c4cf4d06a05c5e2d10300b5b68d068fad68b90a27d9cd2b87a43c0fa4"
   }
 }
